@@ -30,6 +30,12 @@ variable "admin_enabled" {
   default     = false
 }
 
+variable "enable_managed_identity" {
+  description = "Enable RBAC role assignments for managed identity"
+  type        = bool
+  default     = false
+}
+
 variable "managed_identity_id" {
   description = "Principal ID of the managed identity. When provided, AcrPush and AcrPull RBAC roles are assigned automatically"
   type        = string

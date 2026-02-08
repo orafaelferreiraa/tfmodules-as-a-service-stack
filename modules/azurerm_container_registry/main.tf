@@ -18,7 +18,7 @@ resource "azurerm_container_registry" "main" {
 # RBAC: Grant managed identity AcrPush role (push and pull images)
 # Automatically created when managed_identity_id is provided - zero config
 resource "azurerm_role_assignment" "managed_identity_acr_push" {
-  count                = var.managed_identity_id != null ? 1 : 0
+  count                = var.enable_managed_identity ? 1 : 0
   name                 = uuidv5("dns", "${azurerm_container_registry.main.id}-${var.managed_identity_id}-acr-push")
   scope                = azurerm_container_registry.main.id
   role_definition_name = "AcrPush"
@@ -28,7 +28,7 @@ resource "azurerm_role_assignment" "managed_identity_acr_push" {
 # RBAC: Grant managed identity AcrPull role (pull images - for Container Apps workloads)
 # Automatically created when managed_identity_id is provided - zero config
 resource "azurerm_role_assignment" "managed_identity_acr_pull" {
-  count                = var.managed_identity_id != null ? 1 : 0
+  count                = var.enable_managed_identity ? 1 : 0
   name                 = uuidv5("dns", "${azurerm_container_registry.main.id}-${var.managed_identity_id}-acr-pull")
   scope                = azurerm_container_registry.main.id
   role_definition_name = "AcrPull"
