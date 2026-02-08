@@ -42,6 +42,12 @@ variable "managed_identity_id" {
   default     = null
 }
 
+variable "managed_identity_resource_id" {
+  description = "Resource ID of the User-Assigned Managed Identity. When provided, attaches the identity to the Container Registry"
+  type        = string
+  default     = null
+}
+
 variable "public_network_access_enabled" {
   description = "Whether public network access is allowed for the container registry"
   type        = bool

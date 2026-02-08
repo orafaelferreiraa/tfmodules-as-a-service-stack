@@ -13,6 +13,14 @@ resource "azurerm_container_registry" "main" {
   zone_redundancy_enabled       = var.sku == "Premium" ? var.zone_redundancy_enabled : false
 
   tags = var.tags
+
+  dynamic "identity" {
+    for_each = var.managed_identity_resource_id != null ? [1] : []
+    content {
+      type         = "UserAssigned"
+      identity_ids = [var.managed_identity_resource_id]
+    }
+  }
 }
 
 # RBAC: Grant managed identity AcrPush role (push and pull images)
