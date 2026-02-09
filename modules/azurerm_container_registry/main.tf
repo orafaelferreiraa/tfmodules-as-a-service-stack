@@ -33,16 +33,6 @@ resource "azurerm_role_assignment" "managed_identity_acr_push" {
   principal_id         = var.managed_identity_id
 }
 
-# RBAC: Grant managed identity AcrPull role (pull images - for Container Apps workloads)
-# Automatically created when managed_identity_id is provided - zero config
-resource "azurerm_role_assignment" "managed_identity_acr_pull" {
-  count                = var.enable_managed_identity ? 1 : 0
-  name                 = uuidv5("dns", "${azurerm_container_registry.main.id}-${var.managed_identity_id}-acr-pull")
-  scope                = azurerm_container_registry.main.id
-  role_definition_name = "AcrPull"
-  principal_id         = var.managed_identity_id
-}
-
 # Diagnostic settings
 resource "azurerm_monitor_diagnostic_setting" "main" {
   count                      = var.enable_observability ? 1 : 0

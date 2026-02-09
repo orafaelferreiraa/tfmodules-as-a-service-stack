@@ -6,7 +6,7 @@ Repositório de módulos Terraform reutilizáveis para provisionamento de infrae
 
 | Módulo | Descrição | Documentação |
 |--------|-----------|--------------|
-| [azurerm_container_registry](modules/azurerm_container_registry) | Azure Container Registry (ACR) com RBAC automático, Managed Identity e Diagnostic Settings | [README](modules/azurerm_container_registry/README.md) |
+| [azurerm_container_registry](modules/azurerm_container_registry) | Azure Container Registry (ACR) com RBAC automático, Managed Identity e Diagnostic Settings | — |
 
 ## Como usar
 
@@ -33,8 +33,7 @@ tfmodules-as-a-service-stack/
     └── azurerm_container_registry/
         ├── main.tf
         ├── variables.tf
-        ├── outputs.tf
-        └── README.md
+        └── outputs.tf
 ```
 
 ## Requisitos
