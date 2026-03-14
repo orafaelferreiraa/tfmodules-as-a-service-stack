@@ -118,7 +118,7 @@ flowchart TD
     B --> C["📥 pipeline-as-a-service-stack<br/>pipeline-core.yaml"]
     C --> D["🔍 Stage 1: terraform fmt"]
     D --> E["🔍 Stage 2: TFLint<br/>Best practices"]
-    E --> F["🔒 Stage 3: tfsec<br/>Security scanning"]
+    E --> F["🔒 Stage 3: Trivy<br/>Security scanning"]
     F --> G["📋 Stage 4: Checkov<br/>Policy compliance"]
     G --> H["📚 Stage 5: terraform-docs<br/>Auto-generate module docs"]
     H --> I{"All stages<br/>passed?"}
@@ -161,5 +161,5 @@ tfmodules-as-a-service-stack/
 
 | Nome | Versão |
 |------|--------|
-| Terraform | >= 1.9.0 |
-| azurerm | ~> 4.57 |
+| Terraform | >= 1.14.0 |
+| azurerm | ~> 4.64.0 |
